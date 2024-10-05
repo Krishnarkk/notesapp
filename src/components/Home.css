@@ -1,0 +1,89 @@
+/* Title styling */
+.title-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+/* Card styling */
+.question-card {
+  border-radius: 12px;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.question-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Accordion button styling */
+.accordion-button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #007bff;
+  background-color: #f9f9f9 !important;
+  border-radius: 12px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: #007bff !important;
+}
+
+.accordion-body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  padding: 1.5rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Smooth hover animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Question description styling */
+.question-description {
+  font-family: "Lora", serif;
+  font-size: 1.1rem;
+  color: #444;
+  font-style: italic;
+}
+
+.chapter-card {
+  background-color: #f0f0f0;
+}
+
+.chapter-card .accordion-header {
+  font-weight: bold;
+  cursor: pointer;
+}
+

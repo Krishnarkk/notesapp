@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+/* src/index.css */
+
+/* Global light mode styles */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+body.light-mode .navbar,
+body.light-mode .card {
+  background-color: whitesmoke;
+  color: #1e1e1e;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Global dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth transition for theme changes */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
