@@ -46,21 +46,7 @@ const NavigationBar = ({ user, onLogout }) => {
             checked={theme === "dark"}
             className="me-3 theme-switch"
           />
-          {user ? (
-            <Button variant="outline-danger" onClick={handleLogout}>
-              Logout
-            </Button>
-          ) : (
-            <>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
-              <Nav.Link as={Link} to="/signup">
-                Sign Up
-              </Nav.Link>
-            </>
-          )}
-        </Nav>
+                 </Nav>
       </Navbar.Collapse>
     </Navbar>
   );

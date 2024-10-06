@@ -3,6 +3,8 @@ import { firestore } from "../firebase";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc, Timestamp } from "firebase/firestore"; // Correct import of Firestore methods
+import { toast, ToastContainer } from "react-toastify"; // Import Toast components
+import "react-toastify/dist/ReactToastify.css"; // Import Toast CSS
 
 function PostQuestion() {
   const [title, setTitle] = useState("");
@@ -21,9 +23,23 @@ function PostQuestion() {
         description,
         createdAt: Timestamp.now(), // Use Firestore's server timestamp for accurate time
       });
-      navigate("/home"); // Navigate to home after successful submission
+
+      // Show success toast notification
+      toast.success("Question posted successfully!", {
+        position:"top-center",
+        autoClose: 3000, // Automatically close after 3 seconds
+      });
+
+      // Redirect to home after a delay (to let user see toast)
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000);
     } catch (error) {
-      alert("Error posting question: " + error.message); // Show error if something goes wrong
+      // Show error toast notification
+      toast.error("Error posting question: " + error.message, {
+        position:"top-center",
+        autoClose: 3000,
+      });
     }
   };
 
@@ -52,19 +68,26 @@ function PostQuestion() {
         </Form.Group>
 
         <Form.Group controlId="formDescription">
-          <Form.Label>Description</Form.Label>
+          <Form.Label>Answer</Form.Label>
           <Form.Control
             as="textarea"
             rows={3}
-            placeholder="Enter description"
+            placeholder="Enter your answer"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </Form.Group>
-        <Button className="mt-3 btn btn-md-4 w-100 " variant="primary" type="submit">
+        <Button
+          className="mt-3 btn btn-md-4 w-100 "
+          variant="primary"
+          type="submit"
+        >
           Submit
         </Button>
       </Form>
+
+      {/* Toast container to display the notifications */}
+      <ToastContainer />
     </div>
   );
 }
